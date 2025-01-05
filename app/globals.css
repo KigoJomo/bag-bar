@@ -1,21 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --accent: #ffc0cb;
+  --custom-gray: #1f1f1f;
+
+  --font-size: 1rem;
+  --font-ratio: 2;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (max-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-ratio: 1.5;
+    --font-size: 1.2rem;
   }
 }
 
-body {
-  color: var(--foreground);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', serif;
+  color: var(--primary);
+}
+
+.abril {
+  font-family: 'Abril Fatface', serif;
+}
+
+.lato {
+  font-family: 'Lato', serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+  font-family: 'Abril Fatface', serif;
+}
+
+h1 {
+  font-size: calc(
+    var(--font-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio)
+  );
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: calc(var(--font-size) * var(--font-ratio) * var(--font-ratio));
+  /* font-weight: 600; */
+}
+
+h3 {
+  font-size: calc(var(--font-size) * var(--font-ratio));
+  /* font-weight: 600; */
+}
+
+h4 {
+  font-size: calc(var(--font-size));
+  /* font-weight: 600; */
+}
+
+p,
+li,
+label {
+  font-size: calc(var(--font-size) * 1);
+  opacity: 0.8;
+}
+
+.bg-foreground{
+  color: var(--background);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+
+  background: var(--accent);
+  color: var(--background);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--accent-dark);
+    color: var(--background);
+    span {
+      color: var(--background);
+    }
+  }
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--accent);
+    color: var(--background);
+    span {
+      color: var(--background);
+    }
+  }
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  height: 100dvh;
+  overflow: visible;
+
+  body {
+    height: 100%;
+    overflow: visible;
+
+    color: var(--foreground);
+    background: var(--background);
+
+    section {
+      width: 100vw;
+      height: fit-content;
+      overflow: hidden;
+      flex-shrink: 0 !important;
+      padding: 6rem 2rem;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 2.5rem 1rem;
+      }
+    }
+  }
 }
