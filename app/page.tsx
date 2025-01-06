@@ -1,13 +1,9 @@
+import Hero from "./components/Home/Hero";
 
 export default function Home() {
   return (
     <>
-      <section className="bg-foreground flex flex-col items-center">
-        <h1>bag bar</h1>
-      </section>
+      <Hero />
     </>
   );
 }
-
-// products, arrivals, collections, cart, profile
-// auth, bags 
