@@ -8,3 +8,6 @@ export default function Home() {
     </>
   );
 }
+
+// products, arrivals, collections, cart, profile
+// auth, bags 
